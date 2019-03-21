@@ -6,17 +6,16 @@ require('dotenv').config();
 
 var CronJob = require('cron').CronJob;
 
-var count = 0;
-
 const job = new CronJob('* * */4 * * *', function() {
   axios({
     method: 'POST',
-    url: `${process.env.RIDDLE_API}/api/server/treasure`,
+    url: `http://${process.env.RIDDLE_API}/api/server/treasure`,
   })
     .catch((err) => {
-      // error handling is for noobs
+      // why make error handling
+      // if you dont make errors?
     });
-}, null, true);
+});
 
 job.start();
 
