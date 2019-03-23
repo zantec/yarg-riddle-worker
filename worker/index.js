@@ -6,7 +6,7 @@ require('dotenv').config();
 
 var CronJob = require('cron').CronJob;
 
-const job = new CronJob('* * */4 * * *', function() {
+const job = new CronJob('0 0 */4 * * *', function() {
   axios({
     method: 'POST',
     url: `http://${process.env.RIDDLE_API}/api/server/treasure`,
